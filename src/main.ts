@@ -11,6 +11,7 @@ import { AppModule } from './app.module';
 import appConfig from './config/app.config';
 import { CustomExceptionFilter } from './common/exception/custom-exception.filter';
 import { SazedStorage } from './common/lib/Disk/SazedStorage';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 async function bootstrap() {
   // Auto-detect storage driver: prefer MinIO/AWS S3 when env vars are present.
@@ -159,7 +160,22 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
+
+  // Export OpenAPI spec for static hosting (e.g., GitHub Pages in /docs)
+  try {
+    const docsDir = join(process.cwd(), 'docs');
+    if (!existsSync(docsDir)) {
+      mkdirSync(docsDir, { recursive: true });
+    }
+    writeFileSync(
+      join(docsDir, 'openapi.json'),
+      JSON.stringify(document, null, 2),
+    );
+  } catch (err) {
+    console.warn('Failed to write docs/openapi.json:', (err as any)?.message || err);
+  }
   SwaggerModule.setup('api/docs', app, document);
+
   // end swagger
 
   await app.listen(process.env.PORT ?? 4000, '0.0.0.0');

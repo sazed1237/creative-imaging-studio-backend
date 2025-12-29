@@ -1,0 +1,2311 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getApiStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-chunk-stream": {
+      "get": {
+        "operationId": "AppController_chunkStream",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-file-stream": {
+      "get": {
+        "operationId": "AppController_testFileStream",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-file-upload": {
+      "post": {
+        "operationId": "AppController_test",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get user details",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "operationId": "AuthController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Register a user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Login user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/refresh-token": {
+      "post": {
+        "operationId": "AuthController_refreshToken",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Refresh token",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/google": {
+      "get": {
+        "operationId": "AuthController_googleLogin",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Google login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/google/redirect": {
+      "get": {
+        "operationId": "AuthController_googleAuthRedirect",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/apple": {
+      "get": {
+        "operationId": "AuthController_appleAuth",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/apple/redirect": {
+      "get": {
+        "operationId": "AuthController_appleAuthRedirect",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/update": {
+      "patch": {
+        "operationId": "AuthController_updateUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "operationId": "AuthController_forgotPassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Forgot password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/verify-email": {
+      "post": {
+        "operationId": "AuthController_verifyEmail",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Verify email",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/resend-verification-email": {
+      "post": {
+        "operationId": "AuthController_resendVerificationEmail",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Resend verification email",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "operationId": "AuthController_resetPassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Reset password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/change-password": {
+      "post": {
+        "operationId": "AuthController_changePassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Change password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/request-email-change": {
+      "post": {
+        "operationId": "AuthController_requestEmailChange",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "request email change",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/change-email": {
+      "post": {
+        "operationId": "AuthController_changeEmail",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Change email address",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/generate-2fa-secret": {
+      "post": {
+        "operationId": "AuthController_generate2FASecret",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Generate 2FA secret",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/verify-2fa": {
+      "post": {
+        "operationId": "AuthController_verify2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Verify 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/enable-2fa": {
+      "post": {
+        "operationId": "AuthController_enable2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Enable 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/disable-2fa": {
+      "post": {
+        "operationId": "AuthController_disable2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Disable 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/disable-account": {
+      "post": {
+        "operationId": "AuthController_disableAccount",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Disable Account",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/enable-account": {
+      "post": {
+        "operationId": "AuthController_enableAccount",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Enable Account",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/delete-own-account": {
+      "delete": {
+        "operationId": "AuthController_deleteAccount",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete own account",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "operationId": "NotificationController_getAllNotifications",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all notifications for the current user",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notifications/read-all": {
+      "patch": {
+        "operationId": "NotificationController_markAllAsRead",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mark all notifications as read",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notifications/{id}/read": {
+      "patch": {
+        "operationId": "NotificationController_markAsRead",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mark a specific notification as read",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notifications/{id}/unread": {
+      "patch": {
+        "operationId": "NotificationController_markAsUnread",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mark a specific notification as unread",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notifications/{id}/delete": {
+      "delete": {
+        "operationId": "NotificationController_deleteNotification",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete a specific notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "operationId": "ContactController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create contact",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/faq": {
+      "get": {
+        "operationId": "FaqController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get all faq",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/faq/{id}": {
+      "get": {
+        "operationId": "FaqController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get faq by id",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq": {
+      "post": {
+        "operationId": "FaqController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "get": {
+        "operationId": "FaqController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read all faqs",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq/batch-create": {
+      "post": {
+        "operationId": "FaqController_batchCreate",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchCreateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Batch create or update faqs",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq/{id}": {
+      "get": {
+        "operationId": "FaqController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "patch": {
+        "operationId": "FaqController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "delete": {
+        "operationId": "FaqController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete faq",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/contact": {
+      "post": {
+        "operationId": "ContactController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "get": {
+        "operationId": "ContactController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read all contacts",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/admin/contact/{id}": {
+      "get": {
+        "operationId": "ContactController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "patch": {
+        "operationId": "ContactController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "delete": {
+        "operationId": "ContactController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete contact",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/admin/website-info": {
+      "post": {
+        "operationId": "WebsiteInfoController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebsiteInfoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update website info",
+        "tags": [
+          "Website Info"
+        ]
+      },
+      "get": {
+        "operationId": "WebsiteInfoController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get website info",
+        "tags": [
+          "Website Info"
+        ]
+      }
+    },
+    "/api/admin/payment-transaction": {
+      "get": {
+        "operationId": "PaymentTransactionController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all packages",
+        "tags": [
+          "Payment transaction"
+        ]
+      }
+    },
+    "/api/admin/payment-transaction/{id}": {
+      "get": {
+        "operationId": "PaymentTransactionController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get one package",
+        "tags": [
+          "Payment transaction"
+        ]
+      },
+      "delete": {
+        "operationId": "PaymentTransactionController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Payment transaction"
+        ]
+      }
+    },
+    "/api/admin/user": {
+      "post": {
+        "operationId": "UserController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Create a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "operationId": "UserController_findAll",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Get all users"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}/approve": {
+      "post": {
+        "operationId": "UserController_approve",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Approve a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}/reject": {
+      "post": {
+        "operationId": "UserController_reject",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Reject a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}": {
+      "get": {
+        "operationId": "UserController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Get a user by id"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "patch": {
+        "operationId": "UserController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "delete": {
+        "operationId": "UserController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/notification": {
+      "get": {
+        "operationId": "NotificationController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all notifications",
+        "tags": [
+          "Notification"
+        ]
+      },
+      "delete": {
+        "operationId": "NotificationController_removeAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete all notifications",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/admin/notification/{id}": {
+      "delete": {
+        "operationId": "NotificationController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/chat/conversation": {
+      "post": {
+        "operationId": "ConversationController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConversationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create conversation",
+        "tags": [
+          "Conversation"
+        ]
+      },
+      "get": {
+        "operationId": "ConversationController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all conversations",
+        "tags": [
+          "Conversation"
+        ]
+      }
+    },
+    "/api/chat/conversation/{id}": {
+      "get": {
+        "operationId": "ConversationController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get a conversation by id",
+        "tags": [
+          "Conversation"
+        ]
+      },
+      "delete": {
+        "operationId": "ConversationController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete a conversation",
+        "tags": [
+          "Conversation"
+        ]
+      }
+    },
+    "/api/chat/message": {
+      "post": {
+        "operationId": "MessageController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Send message",
+        "tags": [
+          "Message"
+        ]
+      },
+      "get": {
+        "operationId": "MessageController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all messages",
+        "tags": [
+          "Message"
+        ]
+      }
+    },
+    "/api/chat/user": {
+      "get": {
+        "operationId": "UserController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/payment/stripe/webhook": {
+      "post": {
+        "operationId": "StripeController_handleWebhook",
+        "parameters": [
+          {
+            "name": "stripe-signature",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Stripe"
+        ]
+      }
+    },
+    "/api/ai/generate-image": {
+      "post": {
+        "operationId": "AiController_generateImage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateImageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Generate an image based on a prompt",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/generate-from-image": {
+      "post": {
+        "operationId": "AiController_generateFromImage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateImageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/chat": {
+      "post": {
+        "operationId": "AiController_chat",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Chat with the AI",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/conversations": {
+      "get": {
+        "operationId": "AiController_getConversations",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get all conversations",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/conversations/{id}": {
+      "get": {
+        "operationId": "AiController_getConversationMessages",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get messages of a conversation",
+        "tags": [
+          "AI"
+        ]
+      },
+      "delete": {
+        "operationId": "AiController_deleteConversation",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Delete a conversation",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/generation/{id}/download": {
+      "post": {
+        "operationId": "AiController_downloadGeneration",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Download a generated image",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/download/{id}": {
+      "get": {
+        "operationId": "AiController_getDownloadById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get downloaded images by id",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/downloads/{type}": {
+      "get": {
+        "operationId": "AiController_getDownloadsByType",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get downloaded images by type",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/ai/generation/{id}": {
+      "delete": {
+        "operationId": "AiController_deleteGeneration",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Delete a generated image",
+        "tags": [
+          "AI"
+        ]
+      }
+    },
+    "/api/subscription/create-product-price": {
+      "post": {
+        "operationId": "SubscriptionController_createProductAndPrice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductAndPriceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "create product & price",
+        "tags": [
+          "subscription"
+        ]
+      }
+    },
+    "/api/subscription/add/cards": {
+      "post": {
+        "operationId": "SubscriptionController_addCard",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCardDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Add card",
+        "tags": [
+          "subscription"
+        ]
+      }
+    },
+    "/api/subscription/status": {
+      "get": {
+        "operationId": "SubscriptionController_getSubscriptionStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get User Subscription Status",
+        "tags": [
+          "subscription"
+        ]
+      }
+    },
+    "/api/subscription/plans": {
+      "get": {
+        "operationId": "SubscriptionController_getAllPlans",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "get all plans",
+        "tags": [
+          "subscription"
+        ]
+      }
+    },
+    "/api/subscription/cancel": {
+      "post": {
+        "operationId": "SubscriptionController_cancelSubscription",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Cancel Subscription",
+        "tags": [
+          "subscription"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Creative Imaging Studio api",
+    "description": "Creative Imaging Studio api docs",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "Creative Imaging Studio",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user",
+            "example": "john.doe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "The password of the user",
+            "example": "password"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the user",
+            "example": "user"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The avatar of the user",
+            "example": "avatar.png"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "description": "The date of birth of the user",
+            "example": "1990-01-01"
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the user",
+            "example": "male"
+          },
+          "address": {
+            "type": "string",
+            "description": "The location of the user",
+            "example": "New York, USA"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "type",
+          "avatar",
+          "date_of_birth",
+          "gender",
+          "address"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user",
+            "example": "john.doe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "The password of the user",
+            "example": "password"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the user",
+            "example": "user"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The avatar of the user",
+            "example": "avatar.png"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "description": "The date of birth of the user",
+            "example": "1990-01-01"
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the user",
+            "example": "male"
+          },
+          "address": {
+            "type": "string",
+            "description": "The location of the user",
+            "example": "New York, USA"
+          }
+        }
+      },
+      "VerifyEmailDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "otp"
+        ]
+      },
+      "CreateContactDto": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "description": "First name",
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email",
+            "example": "john.doe@example.com"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number",
+            "example": "+1234567890"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message",
+            "example": "Hello, I have a question about your product."
+          }
+        },
+        "required": [
+          "first_name",
+          "last_name",
+          "email",
+          "phone_number",
+          "message"
+        ]
+      },
+      "CreateFaqDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "FAQ question",
+            "example": "What is the price of the hotel?"
+          },
+          "answer": {
+            "type": "string",
+            "description": "FAQ answer",
+            "example": "The price of the hotel is 10000 BDT per night."
+          },
+          "sort_order": {
+            "type": "number",
+            "description": "Sort order",
+            "example": 1
+          }
+        },
+        "required": [
+          "question",
+          "answer",
+          "sort_order"
+        ]
+      },
+      "BatchCreateFaqDto": {
+        "type": "object",
+        "properties": {
+          "faqs": {
+            "description": "Faq data array",
+            "example": [
+              {
+                "question": "What is the price of the hotel?",
+                "answer": "The price of the hotel is 10000 BDT per night.",
+                "sort_order": 1
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "faqs"
+        ]
+      },
+      "UpdateFaqDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "FAQ question",
+            "example": "What is the price of the hotel?"
+          },
+          "answer": {
+            "type": "string",
+            "description": "FAQ answer",
+            "example": "The price of the hotel is 10000 BDT per night."
+          },
+          "sort_order": {
+            "type": "number",
+            "description": "Sort order",
+            "example": 1
+          }
+        }
+      },
+      "UpdateContactDto": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "description": "First name",
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email",
+            "example": "john.doe@example.com"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number",
+            "example": "+1234567890"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message",
+            "example": "Hello, I have a question about your product."
+          }
+        }
+      },
+      "CreateWebsiteInfoDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the website",
+            "example": "My Website"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "The phone number of the website",
+            "example": "081234567890"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the website",
+            "example": "mywebsite@gmail.com"
+          },
+          "address": {
+            "type": "string",
+            "description": "The address of the website",
+            "example": "Jl. Raya No. 123, Jakarta, Indonesia"
+          },
+          "logo": {
+            "description": "The logo of the website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "favicon": {
+            "description": "The favicon of the website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "copyright": {
+            "type": "string",
+            "description": "The copyright of the website",
+            "example": "© 2025 My Website. All rights reserved."
+          },
+          "cancellation_policy": {
+            "type": "string",
+            "description": "The cancellation policy of the website"
+          }
+        },
+        "required": [
+          "name",
+          "phone_number",
+          "email",
+          "address",
+          "logo",
+          "favicon",
+          "copyright",
+          "cancellation_policy"
+        ]
+      },
+      "CreateConversationDto": {
+        "type": "object",
+        "properties": {
+          "creator_id": {
+            "type": "string",
+            "description": "The id of the creator"
+          },
+          "participant_id": {
+            "type": "string",
+            "description": "The id of the participant"
+          }
+        },
+        "required": [
+          "creator_id",
+          "participant_id"
+        ]
+      },
+      "CreateMessageDto": {
+        "type": "object",
+        "properties": {
+          "receiver_id": {
+            "type": "string"
+          },
+          "conversation_id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "receiver_id",
+          "conversation_id",
+          "message"
+        ]
+      },
+      "GenerateImageDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateProductAndPriceDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "AddCardDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}
